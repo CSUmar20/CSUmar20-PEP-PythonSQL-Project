@@ -146,6 +146,8 @@ def write_ordered_calls(csv_file_path):
 
 
 
+
+
 # No need to touch the functions below!------------------------------------------
 
 # This function is for debugs/validation - uncomment the function invocation in main() to see the data in the database.
