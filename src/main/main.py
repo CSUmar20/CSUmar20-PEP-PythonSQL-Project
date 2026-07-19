@@ -78,16 +78,16 @@ def load_and_clean_call_logs(file_path):
     next(reader)
 
     for r in reader:
-        if len(r) != 6:
+        if len(r) != 5:
             continue
 
-        if(r[0] == "" or r[1] == "" or r[2] == "" 
-        or r[3] == "" or r[4] == "" or r[5] == ""):
+        if(r[0].strip() == "" or r[1].strip() == "" or r[2].strip() == "" 
+        or r[3].strip() == "" or r[4].strip() == "" or r[5].strip() == ""):
             continue
         
     
-        cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", 
-        (r[0], r[1], r[2], r[3], r[4], r[5],))
+        cursor.execute("""INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES (?, ?, ?, ?, ?)""", 
+        (r[0], r[1], r[2], r[3], r[4],))
     
     conn.commit()
     file.close()
