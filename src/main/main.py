@@ -55,15 +55,14 @@ def load_and_clean_users(file_path):
     next(reader)
 
     for r in reader:
-        if len(r) != 6:
+        if len(r) != 3:
             continue
 
-        if(r[0] == "" or r[1] == "" or r[2] == "" 
-        or r[3] == "" or r[4] == "" or r[5] == ""):
+        if(r[0] == "" or r[1] == "" or r[2] == ""):
             continue
 
-        cursor.exectue("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", 
-        (r[0], r[1], r[2], r[3], r[4], r[5],))
+        cursor.exectue("INSERT INTO users VALUES (?, ?, ?)", 
+        (r[0], r[1], r[2]))
     
     conn.commit()
     file.close()
@@ -72,7 +71,25 @@ def load_and_clean_users(file_path):
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
 def load_and_clean_call_logs(file_path):
+    file = open(file_path, "r")
 
+    reader = csv.reader(file)
+
+    next(reader)
+
+    for r in reader:
+        if len(r) != 6:
+            continue
+
+        if(r[0] == "" or r[1] == "" or r[2] == "" 
+        or r[3] == "" or r[4] == "" or r[5] == ""):
+            continue
+
+        cursor.exectue("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", 
+        (r[0], r[1], r[2], r[3], r[4], r[5],))
+    
+    conn.commit()
+    file.close()
     print("TODO: load_call_logs")
 
 
