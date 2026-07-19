@@ -90,8 +90,8 @@ def load_and_clean_call_logs(file_path):
         (r[0], r[1], r[2], r[3], r[4], r[5],))
     
     conn.commit()
-    #file.close()
-    print("TODO: load_call_logs")
+    file.close()
+    #print("TODO: load_call_logs")
 
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
