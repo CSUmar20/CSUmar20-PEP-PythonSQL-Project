@@ -61,7 +61,7 @@ def load_and_clean_users(file_path):
         if(r[0] == "" or r[1] == "" ):
             continue
 
-        cursor.execute("INSERT INTO users (firstname, lastname) VALUES (?, ?)", 
+        cursor.execute("""INSERT INTO users (firstname, lastname) VALUES (?, ?)""", 
         (r[0], r[1]))
     
     conn.commit()
