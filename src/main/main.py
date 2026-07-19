@@ -137,7 +137,7 @@ def write_ordered_calls(csv_file_path):
     file = open(csv_file_path, "w", newline="")
     writer = csv.writer(file)
 
-    writer = writerow(["callId","phoneNumber","startTime","endTime","direction","userId"])
+    writer.writerow(["callId","phoneNumber","startTime","endTime","direction","userId"])
     
     for w in res:
         writer.writerow(w)
