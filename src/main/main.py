@@ -61,7 +61,7 @@ def load_and_clean_users(file_path):
         if(r[0] == "" or r[1] == "" or r[2] == ""):
             continue
 
-        cursor.exectue("INSERT INTO users VALUES (?, ?, ?)", 
+        cursor.execute("INSERT INTO users VALUES (?, ?, ?)", 
         (r[0], r[1], r[2]))
     
     conn.commit()
@@ -85,7 +85,7 @@ def load_and_clean_call_logs(file_path):
         or r[3] == "" or r[4] == "" or r[5] == ""):
             continue
 
-        cursor.exectue("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", 
+        cursor.execute("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", 
         (r[0], r[1], r[2], r[3], r[4], r[5],))
     
     conn.commit()
