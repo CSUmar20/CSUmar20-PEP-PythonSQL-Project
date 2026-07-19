@@ -125,11 +125,13 @@ def write_user_analytics(csv_file_path):
 def write_ordered_calls(csv_file_path):
     cursor.execute("""
         SELECT callId,
-            AVG(endTime - startTime),
-            COUNT(*)
-        FROM users
-        GROUP BY userId, startTime
-        ORDER BY userID, startTime
+                phoneNumber,
+                startTime,
+                endTime,
+                direction,
+                userId
+        FROM callLogs
+        ORDER BY userId, startTime
     """)
     res = cursor.fetchall()
     file = open(csv_file_path, "w", newline="")
