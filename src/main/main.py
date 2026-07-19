@@ -63,7 +63,7 @@ def load_and_clean_users(file_path):
             continue
 
         cursor.exectue("INSERT INTO callLogs VALUES (?,?,?,?,?,?)", 
-        (r[0], r[1], r[2], r[3], r[4], r[5], r[6]))
+        (r[0], r[1], r[2], r[3], r[4], r[5],))
     
     conn.commit()
     file.close()
