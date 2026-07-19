@@ -62,7 +62,7 @@ def load_and_clean_users(file_path):
         or r[3] == "" or r[4] == "" or r[5] == ""):
             continue
 
-        cursor.exectue("INSERT INTO callLogs VALUES (?, ?, ?, ?, ?, ?)", 
+        cursor.exectue("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)", 
         (r[0], r[1], r[2], r[3], r[4], r[5],))
     
     conn.commit()
