@@ -55,14 +55,14 @@ def load_and_clean_users(file_path):
     next(reader)
 
     for r in reader:
-        if len(r) != 3:
+        if len(r) != 2:
             continue
 
-        if(r[0] == "" or r[1] == "" or r[2] == ""):
+        if(r[0] == "" or r[1] == "" ):
             continue
 
-        cursor.execute("INSERT INTO users VALUES (?, ?, ?)", 
-        (r[0], r[1], r[2]))
+        cursor.execute("INSERT INTO users VALUES (?, ?)", 
+        (r[0], r[1]))
     
     conn.commit()
     file.close()
