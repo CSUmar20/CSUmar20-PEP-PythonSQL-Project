@@ -82,7 +82,7 @@ def load_and_clean_call_logs(file_path):
             continue
 
         if(r[0].strip() == "" or r[1].strip() == "" or r[2].strip() == "" 
-        or r[3].strip() == "" or r[4].strip() == "" or r[5].strip() == ""):
+        or r[3].strip() == "" or r[4].strip() == ""):
             continue
         
     
