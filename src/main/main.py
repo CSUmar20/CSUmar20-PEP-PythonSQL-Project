@@ -58,8 +58,8 @@ def load_and_clean_users(file_path):
         if len(r) != 6:
             continue
 
-        if(cleaned[0] == "" or cleaned[1] == "" or cleaned[2] == "" 
-        or cleaned[3] == "" or cleaned[4] == "" or cleaned[5] == ""):
+        if(r[0] == "" or r[1] == "" or r[2] == "" 
+        or r[3] == "" or r[4] == "" or r[5] == ""):
             continue
 
         cursor.exectue("INSERT INTO callLogs VALUES (?,?,?,?,?,?)", 
